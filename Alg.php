@@ -1,8 +1,9 @@
 <?php
+class  x {
 
 protected function luhn($number)
 {
-
+    $number = 4000001234567899;
     $number = (string)$number;
 
     if (!ctype_digit($number)) {
@@ -29,6 +30,7 @@ protected function luhn($number)
     return ($checksum % 10 === 0);
 }
 
+
 protected function ValidCreditcard($number)
 {
     $card_array = array(
@@ -37,26 +39,12 @@ protected function ValidCreditcard($number)
             'prefix' => '',
             'luhn' => TRUE,
         ),
-        'american express' => array(
-            'length' => '15',
-            'prefix' => '3[47]',
-            'luhn' => TRUE,
-        ),
         'daron' => array(
             'length' => '14',
             'prefix' => '14|81|99[0-5]',
             'luhn' => TRUE,
         ),
-        'discover' => array(
-            'length' => '16',
-            'prefix' => '6(?:5|011)',
-            'luhn' => TRUE,
-        ),
-        'jcb' => array(
-            'length' => '15,16',
-            'prefix' => '3|1800|2131',
-            'luhn' => TRUE,
-        ),
+
         'maestro' => array(
             'length' => '16,18',
             'prefix' => '50(?:20|38)|6(?:304|759)',
@@ -99,5 +87,11 @@ protected function ValidCreditcard($number)
 
     return $this->luhn($number);
 
+        echo ($type);
+        echo ($number);
+        echo ($cards);
+
+    
+}
 }
 ?>
